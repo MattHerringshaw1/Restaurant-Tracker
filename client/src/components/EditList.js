@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import AddReview from "./EditRestaurant"
+import EditRestaurant from "./EditRestaurant"
 
 
 function EditList() {

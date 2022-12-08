@@ -1,24 +1,62 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function AddRestauranut(props) {
 
-    const [restaurants, setRestaurants] = useState([])
+function AddRestaurant() {
+
+    const navigate = useNavigate()
+    const [restaurant, setRestaurant] = useState([])
+
+    const handleChange = (e) => {
+        setRestaurant({
+           ...restaurant,
+           [e.target.name]: e.target.value 
+        })
+    }
+
+    const handleSubmit = () => {
+    if(!restaurant.restaurantName || !restaurant.address1 || !restaurant.address2 || !restaurant.rating) {
+        alert('Please fill out all textboxes.')
+    } else {
+    fetch('http://localhost:8080/api/add-restaurant', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            restaurantName: restaurant.restaurantName,
+            address1: restaurant.address1,
+            address2: restaurant.address2,
+            rating: restaurant.rating
+        })
+    }).then(response => response.json())
+    .then(result => {
+        if(result.error) {
+            // console.log(result.error)
+            return
+        } else {
+            navigate('/display-list')
+        }
+    })
+    }
+}
 
     return (
         <>
             <h1>Add Restaurant</h1>
 
-            <label for='restaurauntName'>Enter Name</label>
+            <label htmlFor='restaurantName'>Enter Name</label>
             <br></br>
-            <input id='restaurauntName' type='text' placeHolder='Enter Restaurant Name' />
+            <input onChange={handleChange} name='restaurantName' id='restaurantName' type='text' placeholder='Enter Restaurant Name' />
             <br></br>
             <label>Enter Restaurant Address</label>
             <br></br>
-            <input name='intersectionOne' type='text' placeHolder='Enter Intersection 1' />
-            <input name='intersectionTwo' type='text' placeHolder='Enter Intersection 2' />
+            <input onChange={handleChange} name='address1' type='text' placeholder='Enter Intersection 1' />
+            <input onChange={handleChange} name='address2' type='text' placeholder='Enter Intersection 2' />
             <br></br>
-            <label for='rating'>Choose a rating from the following(1 being low and 5 being high):</label>
-            <select id='rating'>
+            <label htmlFor='rating'>Choose a rating from the following(1 being low and 5 being high):</label>
+            <select onChange={handleChange} name='rating' id='rating'>
+                <option value="none"> Select an Option </option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
                 <option value='3'>3</option>
@@ -27,9 +65,10 @@ function AddRestauranut(props) {
             </select>
 
             <br></br>
-            <button>Save Restaurant</button>
+            <button onClick={handleSubmit}>Save Restaurant</button>
         </>
     )
 }
 
-export default AddRestauranut
+
+export default AddRestaurant

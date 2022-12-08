@@ -1,43 +1,43 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 
-function  EditRestaurant(props) {
+function  EditRestaurant() {
 
-    const [review, setReview] = useState({})
+    // const [review, setReview] = useState([])
 
-    const handleChange = (e) => {
-        setReview({
-            ...review,
-            [e.target.name]: e.target.value
-        })
-    }
+    // const handleChange = (e) => {
+    //     setReview({
+    //         ...review,
+    //         [e.target.name]: e.target.value
+    //     })
+    // }
 
 
     return (
         <>
             <h1>add review</h1>
-            <textarea onChange={ handleChange } type='text' placeholder='Enter Review' name='add-review' />
+            {/* <textarea onChange={ handleChange } type='text' placeHolder='Enter Review' name='add-review' />
             <br></br>
             <button onClick={() => props.onReviewAdd(review) }>Save Review</button>
 
-            <button>Delete Review</button>
+            <button>Delete Review</button> */}
 
             
         </>
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onAddReview: (value) => dispatch({type:'ADD_REVIEW'}),
-        onDeleteReview: (value) => dispatch({type:'DELETE_REVIEW'}),
-    }
-}
+//     }
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         onAddReview: (value) => dispatch({type:'ADD_REVIEW'}),
+//         onDeleteReview: (value) => dispatch({type:'DELETE_REVIEW'}),
+//     }
+// }
 
 // delete later
 // const mapDispatchToProps = (dispatch) => {

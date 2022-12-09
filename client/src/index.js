@@ -27,7 +27,7 @@ root.render(
             <Route path = '/' element = { <App />} />
             <Route path = '/add-restaurant' element = { <AddRestauranut />} />
             <Route path = '/display-list' element = { <DisplayRestaurants /> } />
-            <Route path = '/view-details' element = { <ViewDetails /> } />
+            <Route path = '/:restaurantName' element = { <ViewDetails /> } />
             <Route path = '/edit-list' element = { <EditList /> } />
             <Route path = '/add-review' element = { <AddReview /> } />
             <Route path = '/logout' element = { <Logout /> } />

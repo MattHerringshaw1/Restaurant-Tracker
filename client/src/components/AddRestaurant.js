@@ -27,7 +27,8 @@ function AddRestaurant() {
             restaurantName: restaurant.restaurantName,
             address1: restaurant.address1,
             address2: restaurant.address2,
-            rating: restaurant.rating
+            rating: restaurant.rating,
+            restaurantId: restaurant.restaurantId,
         })
     }).then(response => response.json())
     .then(result => {

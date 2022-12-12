@@ -9,9 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import BaseLayout from './components/BaseLayout';
 import AddRestauranut from './components/AddRestaurant';
 import DisplayRestaurants from './components/DisplayRestaurants';
-import EditList from './components/EditList';
 import Logout from './components/Logout';
-import AddReview from './components/EditRestaurant';
 import ViewDetails from './components/ViewDetails';
 
 // const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
@@ -28,8 +26,7 @@ root.render(
             <Route path = '/add-restaurant' element = { <AddRestauranut />} />
             <Route path = '/display-list' element = { <DisplayRestaurants /> } />
             <Route path = '/:restaurantName' element = { <ViewDetails /> } />
-            <Route path = '/edit-list' element = { <EditList /> } />
-            <Route path = '/add-review' element = { <AddReview /> } />
+            {/* <Route path = '/add-review' element = { <DisplayRestaurants /> } /> */}
             <Route path = '/logout' element = { <Logout /> } />
           </Routes>
         </BaseLayout>

@@ -18,21 +18,23 @@ function DisplayRestaurant() {
         fetchRestaurants()
     }, [])
 
-    // handleDelete = () => {
-    //     fetch('http://localhost:8080/delete-restaurant', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({ id })
-    //     })
-    // }
+    const handleDelete = (id) => {
+        fetch('http://localhost:8080/api/delete-restaurant', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id })
+        })
+        console.log(id)
+        window.location.reload(false)
+    }
 
     const restaurantItems = restaurants.map(restaurant => {
         return <div key={restaurant.id}>
          <NavLink to = {`/${restaurant.restaurant_name}`}><li>{restaurant.restaurant_name}</li></NavLink>
          <li>Rating: {restaurant.restaurant_rating}</li>
-         {/* <button onClick={() => handleDelete(restaurant.id)}>Delete</button>  */}
+         <button onClick={() => handleDelete(restaurant.id)}>Delete</button> 
         </div>
     })
 

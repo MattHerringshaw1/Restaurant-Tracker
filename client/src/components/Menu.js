@@ -8,7 +8,7 @@ function Menu() {
             <NavLink to = '/'>Home</NavLink>
             <NavLink to = '/add-restaurant'>Add Restaurant</NavLink>
             <NavLink to = '/display-list'>View Restaurant's</NavLink>
-            <NavLink to = '/about-me'>About</NavLink>
+            {/* <NavLink to = '/search'>Search</NavLink> */}
             <NavLink to = '/logout'>Logout</NavLink>
         </div>
     )

@@ -51,17 +51,17 @@ function DisplayRestaurant() {
         // window.location.reload(false)
     }
 
-    // const handleDeleteReview = (id) => {
-    //     // console.log(id)
-    //     fetch('http://localhost:8080/api/delete-review', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({ id })
-    //     })
-    //     fetchReviews()
-    // }
+    const handleDeleteReview = (id) => {
+        // console.log(id)
+        fetch('http://localhost:8080/api/delete-review', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id })
+        })
+        fetchReviews()
+    }
 
     const restaurantItems = restaurants.map(restaurant => {
         const reviewItems = reviews.filter(review => {
@@ -77,7 +77,7 @@ function DisplayRestaurant() {
                 {reviewItems.map(review => {
                     return <div key={review.id}>
                     <li>{review.body}</li>
-                    {/* <button onClick={() => handleDeleteReview(review.id)}>Delete Review</button> */}
+                    <button onClick={() => handleDeleteReview(review.id)}>Delete Review</button>
                     </div>
                 })}
                 <br></br>

@@ -26,7 +26,6 @@ root.render(
             <Route path = '/add-restaurant' element = { <AddRestauranut />} />
             <Route path = '/display-list' element = { <DisplayRestaurants /> } />
             <Route path = '/:restaurantName' element = { <ViewDetails /> } />
-            {/* <Route path = '/add-review' element = { <DisplayRestaurants /> } /> */}
             <Route path = '/logout' element = { <Logout /> } />
           </Routes>
         </BaseLayout>

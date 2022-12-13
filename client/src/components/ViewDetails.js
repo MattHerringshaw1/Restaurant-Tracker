@@ -35,7 +35,7 @@ function ViewDetails() {
 
     const filteredRestaurant = restaurant.filter(foodPlace => {
         return foodPlace.restaurant_name === restaurantName })
-        console.log(filteredRestaurant)
+        // console.log(filteredRestaurant)
 
     const restaurantItem = filteredRestaurant.map(restaurant => {
         return <div key={restaurant.id}>

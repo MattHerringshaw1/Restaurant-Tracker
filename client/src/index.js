@@ -11,6 +11,8 @@ import AddRestauranut from './components/AddRestaurant';
 import DisplayRestaurants from './components/DisplayRestaurants';
 import Logout from './components/Logout';
 import ViewDetails from './components/ViewDetails';
+import Login from './components/Login';
+import Register from './components/Register';
 
 // const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
@@ -22,7 +24,9 @@ root.render(
       <BrowserRouter>
         <BaseLayout>
           <Routes>
-            <Route path = '/' element = { <App />} />
+            <Route path = '/register' element = { <Register /> } />
+            <Route path = '/login' element = { <Login /> } />
+            <Route path = '/home' element = { <App />} />
             <Route path = '/add-restaurant' element = { <AddRestauranut />} />
             <Route path = '/display-list' element = { <DisplayRestaurants /> } />
             <Route path = '/:restaurantName' element = { <ViewDetails /> } />

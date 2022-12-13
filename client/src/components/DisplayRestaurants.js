@@ -50,6 +50,7 @@ function DisplayRestaurant() {
 
     const handleDeleteReview = (id) => {
         // console.log(id)
+        
         fetch('http://localhost:8080/api/delete-review', {
             method: 'POST',
             headers: {

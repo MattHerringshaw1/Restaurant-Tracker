@@ -4,8 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-// import { createStore } from 'redux'
-// import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducer from './store/reducers/reducer';
 import BaseLayout from './components/BaseLayout';
 import AddRestauranut from './components/AddRestaurant';
 import DisplayRestaurants from './components/DisplayRestaurants';
@@ -14,13 +15,16 @@ import ViewDetails from './components/ViewDetails';
 import Login from './components/Login';
 import Register from './components/Register';
 
-// const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const token = localStorage.getItem('jwt')
+if(token) {
+  store.dispatch({type: 'ON_LOGIN', payload: token})
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <Provider store = {store}> */}
+    <Provider store = {store}>
       <BrowserRouter>
         <BaseLayout>
           <Routes>
@@ -34,7 +38,7 @@ root.render(
           </Routes>
         </BaseLayout>
       </BrowserRouter>
-    {/* </Provider> */}
+    </Provider>
   </React.StrictMode>
 );
 

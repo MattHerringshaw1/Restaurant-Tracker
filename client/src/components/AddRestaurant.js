@@ -15,6 +15,7 @@ function AddRestaurant() {
     }
 
     const handleSubmit = () => {
+        const userId = localStorage.getItem('userId')
     if(!restaurant.restaurantName || !restaurant.address1 || !restaurant.address2 || !restaurant.rating) {
         alert('Please fill out all textboxes.')
     } else {
@@ -29,6 +30,7 @@ function AddRestaurant() {
             address2: restaurant.address2,
             rating: restaurant.rating,
             restaurantId: restaurant.restaurantId,
+            userId: userId,
         })
     }).then(response => response.json())
     .then(result => {
@@ -45,7 +47,7 @@ function AddRestaurant() {
     return (
         <>
             <h1>Add Restaurant</h1>
-
+            <div key={restaurant.id}>
             <label htmlFor='restaurantName'>Enter Name</label>
             <br></br>
             <input onChange={handleChange} name='restaurantName' id='restaurantName' type='text' placeholder='Enter Restaurant Name' />
@@ -67,6 +69,7 @@ function AddRestaurant() {
 
             <br></br>
             <button onClick={handleSubmit}>Save Restaurant</button>
+            </div>
         </>
     )
 }

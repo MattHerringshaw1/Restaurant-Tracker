@@ -23,24 +23,25 @@ function Login(props) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                userName: user.username,
-                userPassword: user.password
-            })
-        }).then(response => response.json())
+            body: JSON.stringify(user)
+        })
+        .then(response => response.json())
         .then(result => {
 
             if(result.success) {
                 
                 const token = result.token 
                 const username = result.username 
+                const userId = result.userId
                 localStorage.setItem('jwt', token)
                 localStorage.setItem('username', username)
+                localStorage.setItem('userId', userId )
 
                 props.onLogin(token)
-                navigate('/login')
+                navigate('/add-restaurant')
+            
             }
-        
+            // console.log(result)
         })}
     }
     
@@ -51,7 +52,7 @@ function Login(props) {
 
             <input minLength={4} maxLength={8} onChange={handleChange} type='text' name='username' placeholder="Enter username" />
             <input minLength={4} maxLength={8} onChange={handleChange} type='text' name='password' placeholder="Enter password" />
-            <button onClick={handleSubmit} >Create user</button>
+            <button onClick={handleSubmit} >Login</button>
         </>
     )
 }

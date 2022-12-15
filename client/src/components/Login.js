@@ -38,7 +38,7 @@ function Login(props) {
                 localStorage.setItem('userId', userId )
 
                 props.onLogin(token)
-                navigate('/add-restaurant')
+                navigate('/display-list')
             
             }
             // console.log(result)

@@ -45,8 +45,8 @@ function Register() {
     <>
         <h1>Register</h1>
 
-        <input minLength={4} maxLength={8} onChange={handleChange} type='text' name='username' placeholder="Enter username" />
-        <input minLength={4} maxLength={8} onChange={handleChange} type='text' name='password' placeholder="Enter password" />
+        <input required minLength={4} maxLength={8} onChange={handleChange} type='text' name='username' placeholder="Enter username" />
+        <input required minLength={4} maxLength={8} onChange={handleChange} type='text' name='password' placeholder="Enter password" />
         <button onClick={handleSubmit} >Create user</button>
     </>
     )

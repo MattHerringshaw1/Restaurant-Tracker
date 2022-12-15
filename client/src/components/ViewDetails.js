@@ -10,10 +10,23 @@ function ViewDetails() {
     // console.log(restaurantName)
 
     const fetchRestaurant = () => {
-        fetch('http://localhost:8080/api/view-restaurants')
+        const token = localStorage.getItem('jwt')
+        const userId = localStorage.getItem('userId')
+        fetch('http://localhost:8080/api/view-restaurants', {
+        method: 'GET', 
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'userId': `${userId}`
+            }
+        })
         .then(response => response.json())
-        .then(restaurant => {
-            setRestaurant(restaurant)
+        .then(result => {
+            if(result.error) {
+                console.log(result.error)
+            } else {
+            setRestaurant(result)
+            }
         })
     }
 

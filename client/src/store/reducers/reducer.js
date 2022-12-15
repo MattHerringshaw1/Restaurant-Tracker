@@ -8,9 +8,9 @@ const reducer = (state = initialState, action) => {
     if(action.type === 'ON_LOGIN') {
         return {
             ...state, 
-            // isAuthenticated: action.payload == null ? false: true 
+            isAuthenticated: action.payload == null ? false: true 
         }
-    } else if(action.type === 'ON_SIGNOUT') {
+    } else if(action.type === 'ON_LOGOUT') {
         return {
             ...state, 
             isAuthenticated: false 

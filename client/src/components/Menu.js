@@ -1,17 +1,24 @@
 import { NavLink } from "react-router-dom";
+import { connect } from 'react-redux'
 
-function Menu() {
+function Menu(props) {
     return(
         <div>
-            <NavLink to = '/register'>Register</NavLink>
-            <NavLink to = '/login'>Login</NavLink>
+            {props.isAuth ? null: <NavLink to = '/register'>Register</NavLink>}
+            {props.isAuth ? null: <NavLink to = '/login'>Login</NavLink>}
             {/* <NavLink to = '/home'>Home</NavLink> */}
-            <NavLink to = '/add-restaurant'>Add Restaurant</NavLink>
-            <NavLink to = '/display-list'>View Restaurant's</NavLink>
+            { props.isAuth ? <NavLink to = '/add-restaurant'>Add Restaurant</NavLink>: null}
+            { props.isAuth ? <NavLink to = '/display-list'>View Restaurant's</NavLink>: null}
             {/* <NavLink to = '/search'>Search</NavLink> */}
-            <NavLink to = '/logout'>Logout</NavLink>
+            { props.isAuth ? <NavLink to = '/logout'>Logout</NavLink>: null}
         </div>
     )
 }
 
-export default Menu
+const mapStateToProps = (state) => {
+    return {
+        isAuth: state.isAuthenticated
+    }
+}
+
+export default connect(mapStateToProps)(Menu)

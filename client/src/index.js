@@ -14,6 +14,7 @@ import Logout from './components/Logout';
 import ViewDetails from './components/ViewDetails';
 import Login from './components/Login';
 import Register from './components/Register';
+import ProtectedRoutes from './components/ProtectedRoutes';
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 const token = localStorage.getItem('jwt')
@@ -30,11 +31,11 @@ root.render(
           <Routes>
             <Route path = '/register' element = { <Register /> } />
             <Route path = '/login' element = { <Login /> } />
-            <Route path = '/home' element = { <App />} />
-            <Route path = '/add-restaurant' element = { <AddRestauranut />} />
-            <Route path = '/display-list' element = { <DisplayRestaurants /> } />
-            <Route path = '/:restaurantName' element = { <ViewDetails /> } />
-            <Route path = '/logout' element = { <Logout /> } />
+            <Route path = '/home' element = { <ProtectedRoutes><App /></ProtectedRoutes>} />
+            <Route path = '/add-restaurant' element = { <ProtectedRoutes><AddRestauranut /></ProtectedRoutes>} />
+            <Route path = '/display-list' element = { <ProtectedRoutes><DisplayRestaurants /></ProtectedRoutes> } />
+            <Route path = '/:restaurantName' element = { <ProtectedRoutes><ViewDetails /></ProtectedRoutes> } />
+            <Route path = '/logout' element = { <ProtectedRoutes><Logout /></ProtectedRoutes> } />
           </Routes>
         </BaseLayout>
       </BrowserRouter>

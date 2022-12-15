@@ -9,18 +9,44 @@ function DisplayRestaurant() {
     const [reviews, setReviews] = useState([])
 
     const fetchRestaurants = () => {
-        fetch('http://localhost:8080/api/view-restaurants')
+        const token = localStorage.getItem('jwt')
+        let userId = localStorage.getItem('userId')
+        fetch('http://localhost:8080/api/view-restaurants', {
+        method: 'GET', 
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'userId': `${userId}` 
+            },
+            // body: JSON.stringify({ userId })
+        })
         .then(response => response.json())
-        .then(restaurants => {
-            setRestaurants(restaurants)
+        .then(result => {
+            if(result.error) {
+                console.log(result.error)
+            } else {
+            setRestaurants(result)
+            }
         })
     }
 
     const fetchReviews = () => {
-        fetch('http://localhost:8080/api/view-reviews')
+        const token = localStorage.getItem('jwt')
+
+        fetch('http://localhost:8080/api/view-reviews', {
+            method: 'GET', 
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
         .then(response => response.json())
-        .then(reviews => {
-            setReviews(reviews)
+        .then(result1 => {
+            if(result1.error) {
+                console.log(result1.error)
+            } else {
+            setReviews(result1)
+            }
         })
     }
 

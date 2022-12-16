@@ -47,13 +47,13 @@ function Login(props) {
     
 
     return (
-        <>
-            <h1>login</h1>
+        <div className='login-container'>
+            <h1>User Login Below</h1>
 
-            <input minLength={4} maxLength={8} onChange={handleChange} type='text' name='username' placeholder="Enter username" />
-            <input minLength={4} maxLength={8} onChange={handleChange} type='text' name='password' placeholder="Enter password" />
-            <button onClick={handleSubmit} >Login</button>
-        </>
+            <input className='input' minLength={4} maxLength={8} onChange={handleChange} type='text' name='username' placeholder="Enter username" />
+            <input className='input' minLength={4} maxLength={8} onChange={handleChange} type='password' name='password' placeholder="Enter password" />
+            <button className='button' onClick={handleSubmit} >Login</button>
+        </div>
     )
 }
 

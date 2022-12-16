@@ -1,18 +1,15 @@
 
 import Footer from './Footer'
-import Menu from './Menu'
+// import NavScrollExample from './MenuBootstrap'
 import '../styles/stylesheet.css'
+import Menu from './Menu'
 
 function BaseLayout(props) {
     return (
         <div>
-            <div>
                 <Menu />
-            </div>
                 {props.children}
-            <div className='footer' >
                 <Footer />
-            </div>
         </div>
     )
 }

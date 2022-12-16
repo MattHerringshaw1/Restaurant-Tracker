@@ -45,32 +45,37 @@ function AddRestaurant() {
 }
 
     return (
-        <>
+        <div className='main-container'>
+            
             <h1>Add Restaurant</h1>
+            
             <div key={restaurant.id}>
-            <label htmlFor='restaurantName'>Enter Name</label>
-            <br></br>
-            <input onChange={handleChange} name='restaurantName' id='restaurantName' type='text' placeholder='Enter Restaurant Name' />
-            <br></br>
-            <label>Enter Restaurant Address</label>
-            <br></br>
-            <input onChange={handleChange} name='address1' type='text' placeholder='Enter Intersection 1' />
-            <input onChange={handleChange} name='address2' type='text' placeholder='Enter Intersection 2' />
-            <br></br>
-            <label htmlFor='rating'>Choose a rating from the following(1 being low and 5 being high):</label>
-            <select onChange={handleChange} name='rating' id='rating'>
-                <option value="none"> Select an Option </option>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4'>4</option>
-                <option value='5'>5</option>
-            </select>
-
-            <br></br>
-            <button onClick={handleSubmit}>Save Restaurant</button>
+                <div className='input'>
+                    <label htmlFor='restaurantName'>Enter Restaurant Name: </label>
+                    <input onChange={handleChange} name='restaurantName' id='restaurantName' type='text' placeholder='Name' />
+                </div>
+                <div className='input'>
+                    <label>Enter Restaurant Address: </label>
+                    <input onChange={handleChange} name='address1' type='text' placeholder='Intersection 1' />
+                    <> , </>
+                    <input onChange={handleChange} name='address2' type='text' placeholder='Intersection 2' />
+                </div>
+                <div className='input'>
+                    <label htmlFor='rating'>Choose a rating from the following: </label>
+                    <select onChange={handleChange} name='rating' id='rating'>
+                        <option value="none"> Select an Option </option>
+                        <option value='1'>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                        <option value='4'>4</option>
+                        <option value='5'>5</option>
+                    </select>
+                </div>
+                <div className='button'>
+                    <button onClick={handleSubmit}>Save Restaurant</button>
+                </div>
             </div>
-        </>
+        </div>
     )
 }
 

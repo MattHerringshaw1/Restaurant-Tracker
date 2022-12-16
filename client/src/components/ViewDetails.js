@@ -52,21 +52,25 @@ function ViewDetails() {
 
     const restaurantItem = filteredRestaurant.map(restaurant => {
         return <div key={restaurant.id}>
-            <li>{restaurant.restaurant_name}</li>
-            <li>Located in the intersection of: {restaurant.restaurant_address_1} and {restaurant.restaurant_address_2}</li>
-            <li>Rating: {restaurant.restaurant_rating}</li>
-            <button onClick={() => handleDelete(restaurant.id)}>Delete</button> 
+            <li><u>Restaurant Name</u>: {restaurant.restaurant_name}</li>
+            <li><u>Located in the intersection of</u>: {restaurant.restaurant_address_1} and {restaurant.restaurant_address_2}</li>
+            <li><u>Rating</u>: {restaurant.restaurant_rating}</li>
+            <button onClick={() => handleDelete(restaurant.id)}>Delete Restaurant</button> 
         </div>
     })
 
     return (
-        <>
-            <h1>view details below</h1>
+        <div className='main-container'>
+            <h1>View Restaurant Details Below</h1>
+            <div className='input-view'>
+                
 
-            <ul>{restaurantItem}</ul>
-
-            <NavLink to = '/display-list'><button>Back</button></NavLink>
-        </>
+                <ul>{restaurantItem}</ul>
+            </div>
+            <div className='button'>
+                <NavLink to = '/display-list'><button>Back</button></NavLink>
+            </div>
+        </div>
     )
 }
 

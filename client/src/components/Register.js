@@ -42,13 +42,13 @@ function Register() {
 
 
     return (
-    <>
-        <h1>Register</h1>
+    <div className='register-container'>
+        <h1>Registration Page</h1>
 
-        <input required minLength={4} maxLength={8} onChange={handleChange} type='text' name='username' placeholder="Enter username" />
-        <input required minLength={4} maxLength={8} onChange={handleChange} type='text' name='password' placeholder="Enter password" />
-        <button onClick={handleSubmit} >Create user</button>
-    </>
+        <input className='input' required minLength={4} maxLength={8} onChange={handleChange} type='text' name='username' placeholder="Enter username" />
+        <input className='input' required minLength={4} maxLength={8} onChange={handleChange} type='password' name='password' placeholder="Enter password" />
+        <button className='button' onClick={handleSubmit} >Create user</button>
+    </div>
     )
     
 }

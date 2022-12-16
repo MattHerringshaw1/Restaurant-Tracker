@@ -93,7 +93,7 @@ function DisplayRestaurant() {
         })
 
         return <div key={restaurant.id}>
-                <NavLink to = {`/${restaurant.restaurant_name}`}><li>{restaurant.restaurant_name}</li></NavLink>
+                <h1><NavLink to = {`/${restaurant.restaurant_name}`}><li>{restaurant.restaurant_name}</li></NavLink></h1>
                 <textarea onChange={(e) => setRestReview(e.target.value)} type='text' name='restReview' placeholder='Enter Review Here'></textarea>
                 <br></br>
                 <button onClick={() => handleAddReview(restaurant.id)}>Add Review</button>
@@ -119,13 +119,13 @@ function DisplayRestaurant() {
     // })
 
     return (
-        <>
-            <h1>display restaurants/reviews added</h1>
+        <div className='main-container'>
+            <h1>Your List!</h1>
                 <ul>       
                     {restaurantItems}
                     
                 </ul>
-        </>
+        </div>
     )
 }
 
